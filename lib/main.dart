@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Custom Painter',
       home: MyPainter(),
     );
@@ -113,6 +114,8 @@ class _MyPainterState extends State<MyPainter> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: Text('Custom Paint'),
+        elevation: 0.0,
+        backgroundColor: Colors.black,
       ),
       body: SafeArea(
         child: Column(
@@ -149,6 +152,7 @@ class _MyPainterState extends State<MyPainter> with TickerProviderStateMixin {
               ),
             ),
             Slider(
+              activeColor: Colors.black,
               value: _sides,
               min: 3.0,
               max: 10.0,
@@ -177,7 +181,7 @@ class ShapePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..color = Colors.teal
+      ..color = Colors.black
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
