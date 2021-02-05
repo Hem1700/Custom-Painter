@@ -75,29 +75,22 @@ class _MyPainterState extends State<MyPainter> with TickerProviderStateMixin {
     controller2.forward();
   }
 
-  String function(String shape){
-    if(_sides==3){
+  String function(String shape) {
+    if (_sides == 3) {
       shape = 'Triangle';
-    }
-    else if(_sides == 4){
+    } else if (_sides == 4) {
       shape = 'Square';
-    }
-    else if(_sides == 5){
+    } else if (_sides == 5) {
       shape = 'Pentagon';
-    }
-    else if(_sides == 6){
+    } else if (_sides == 6) {
       shape = 'Hexagon';
-    }
-    else if(_sides == 7){
+    } else if (_sides == 7) {
       shape = 'Heptagon';
-    }
-    else if(_sides == 8 ){
+    } else if (_sides == 8) {
       shape = 'Octagon';
-    }
-    else if(_sides == 9){
+    } else if (_sides == 9) {
       shape = 'Nonagon';
-    }
-    else if(_sides == 10){
+    } else if (_sides == 10) {
       shape = 'Decagon';
     }
     return shape;
@@ -114,8 +107,7 @@ class _MyPainterState extends State<MyPainter> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: Text('Custom Paint'),
-        elevation: 0.0,
-        backgroundColor: Colors.black,
+        elevation: 2.0,
       ),
       body: SafeArea(
         child: Column(
@@ -137,22 +129,33 @@ class _MyPainterState extends State<MyPainter> with TickerProviderStateMixin {
               padding: const EdgeInsets.only(left: 24.0),
               child: Row(
                 children: [
-                  Text('Sides : '),
-                  Text(_sides.toInt().toString()),
+                  Text(
+                    'Sides : ',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  Text(
+                    _sides.toInt().toString(),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
                 ],
               ),
             ),
-            Padding( 
-              padding: const  EdgeInsets.only(left:24.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 24.0),
               child: Row(
                 children: [
-                  Text('Shape : '),
-                  Text(function(_sides.toString())),
+                  Text(
+                    'Shape : ',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  Text(
+                    function(_sides.toString()),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
                 ],
               ),
             ),
             Slider(
-              activeColor: Colors.black,
               value: _sides,
               min: 3.0,
               max: 10.0,
